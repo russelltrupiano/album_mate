@@ -1,0 +1,10 @@
+.logged-out-container
+    .application-icon-wrapper
+        %img{:src => "http://www.webdesign.org/img_articles/12567/16.jpg", :alt => "application icon", :class => "application-icon"}/
+    .session-start-wrapper
+        .log-in-wrapper
+            = link_to 'Log In', '#', class: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect log-in-button"
+        .sign-up-wrapper
+
+            = link_to "Sign Up", '#', class: "sign-up-link"
+    %p.application-description Keep track of all of your favorite artists and never miss a new album release again! Completely free!

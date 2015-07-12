@@ -1,0 +1,14 @@
+.logged-out-container {
+    text-align: center;
+    padding: 48px;
+
+    @include outer-container;
+    .application-icon-wrapper {
+        @include outer-container;
+        padding: 24px;
+    }
+    .session-start-wrapper {
+        @include outer-container;
+        padding: 24px;
+    }
+}

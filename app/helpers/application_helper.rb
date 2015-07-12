@@ -10,4 +10,8 @@ module ApplicationHelper
         end
     end
 
+    def application_title
+        "Album Mate"
+    end
+
 end

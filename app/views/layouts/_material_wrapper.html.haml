@@ -1,0 +1,22 @@
+.mdl-layout.mdl-js-layout.mdl-layout--fixed-header
+    / If logged in
+    %header.mdl-layout__header
+        .mdl-layout__header-row
+            / Title
+            %span.mdl-layout-title= application_title
+            / Spacer to align nav to right
+            .mdl-layout-spacer
+            / Navigation
+            %nav.mdl-navigation.mdl-layout--large-screen-only
+                %a.mdl-navigation__link{:href => '#'}User
+    .mdl-layout__drawer
+        %span.mdl-layout-title= application_title
+        %nav.mdl-navigation
+            %a.mdl-navigation__link{:href => releases_path}New Releases
+            %a.mdl-navigation__link{:href => subscriptions_path}Subscriptions
+            %a.mdl-navigation__link{:href => settings_path}Settings
+    %main.mdl-layout__content
+        .page-content
+            = yield
+            = render 'layouts/footer'
+            = debug(params) if Rails.env.development?

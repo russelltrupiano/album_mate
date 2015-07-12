@@ -1,1 +1,11 @@
-Footer
+%footer.mdl-mini-footer
+    .mdl-mini-footer--left-section
+        .mdl-logo= application_title
+        %ul.mdl-mini-footer--link-list
+            %li= link_to "Help", help_path
+            %li= link_to "Contact", contact_path
+    .mdl-mini-footer--right-section
+        = link_to 'Test', '#', class: "mdl-mini-footer--social-btn"
+        = link_to 'Test', '#', class: "mdl-mini-footer--social-btn"
+        = link_to 'Test', '#', class: "mdl-mini-footer--social-btn"
+
