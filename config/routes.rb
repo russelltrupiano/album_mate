@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'users/new'
+
   root                    'static_pages#home'
   get 'releases'       => 'static_pages#home'
   get 'subscriptions'  => 'static_pages#subscriptions'

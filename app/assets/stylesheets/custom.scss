@@ -1,5 +1,24 @@
-.logged-out-container {
+// Universal
+
+body {
+    padding-top: 0;
+}
+
+section {
+    overflow: auto;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.center {
     text-align: center;
+}
+
+// StaticPages#home
+
+.logged-out-container {
     padding: 48px;
 
     @include outer-container;
