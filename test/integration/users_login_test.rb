@@ -20,9 +20,9 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     get login_path
     assert_template 'sessions/new'
     post login_path, session: { email: @user.email, password: "password" }
-    assert_redirected_to @user
+    assert_redirected_to releases_path
     follow_redirect!
-    assert_template "users/show"
+    assert_template "static_pages/home"
     assert_select "a[href=?]", logout_path
   end
 
@@ -30,9 +30,9 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     get login_path
     post login_path, session: { email: @user.email, password: "password" }
     assert is_logged_in?
-    assert_redirected_to @user
+    assert_redirected_to releases_path
     follow_redirect!
-    assert_template 'users/show'
+    assert_template "static_pages/home"
     assert_select "a[href=?]", logout_path
     delete logout_path
     assert_not is_logged_in?

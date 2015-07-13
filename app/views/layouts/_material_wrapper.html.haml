@@ -8,21 +8,27 @@
         / Spacer to align nav to right
         .mdl-layout-spacer
         / Navigation
-        - if logged_in?
-          %nav.mdl-navigation
-            %img#user-menu{:src => "/images/default_photo.png", :class => "mdl-button mdl-js-button mdl-button--icon"}
-            %ul.mdl-menu.mdl-menu--bottom-right.mdl-js-menu.mdl-js-ripple-effect{:for => "user-menu"}
-              %li.mdl-menu__item
-                %a.mdl-navigation__link{:href => edit_user_path(current_user)}Update Profile
-              %li.mdl-menu__item
-                = link_to "Log out", logout_path, method: "delete", class: "mdl-navigation__link"
-    - if logged_in?
-      .mdl-layout__drawer
-        %span.mdl-layout-title= application_title
         %nav.mdl-navigation
+        - if logged_in?
+          %img#user-menu{:src => "/images/default_photo.png", :class => "mdl-button mdl-js-button mdl-button--icon"}
+          %ul.mdl-menu.mdl-menu--bottom-right.mdl-js-menu.mdl-js-ripple-effect{:for => "user-menu"}
+            %li.mdl-menu__item
+              %a.mdl-navigation__link{:href => edit_user_path(current_user)}Update Profile
+            %li.mdl-menu__item
+              = link_to "Log out", logout_path, method: "delete", class: "mdl-navigation__link"
+        - else
+          = link_to 'Sign Up', signup_path, class: "mdl-button mdl-js-button mdl-button--accent mdl-js-ripple-effect log-in-button"
+
+    .mdl-layout__drawer
+      %span.mdl-layout-title= application_title
+      %nav.mdl-navigation
+        - if logged_in?
           %a.mdl-navigation__link{:href => releases_path}New Releases
           %a.mdl-navigation__link{:href => subscriptions_path}Subscriptions
           %a.mdl-navigation__link{:href => settings_path}Settings
+        %a.mdl-navigation__link{:href => contact_path}Contact
+        %a.mdl-navigation__link{:href => help_path}Help
+
     %main.mdl-layout__content
       .page-content
         - flash.each do |msg_type, msg|
