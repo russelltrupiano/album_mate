@@ -1,6 +1,6 @@
 = provide(:title, "Log in")
 .row
-  .col-6.col-offset-3
+  .col-4.col-offset-4
     %h3 Log in
     = form_for(:session, url: login_path) do |f|
 
@@ -15,7 +15,7 @@
       .form-field.row
         = f.label :remember_me, class: "checkbox inline mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect", for: "remember_me_checkbox" do
           = f.check_box :remember_me, class: "mdl-checkbox__input", id: "remember_me_checkbox"
-          %span.mdl-checkbox__label Remember me on the computer
+          %span.mdl-checkbox__label Remember me
 
       .form-field.submit-wrapper.row
         = f.submit "Log in", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent pad-small-button"
