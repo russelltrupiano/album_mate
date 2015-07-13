@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "devs@albumate.org"
+  default from: "noreply@albumatedevs.com"
   layout 'mailer'
 end
