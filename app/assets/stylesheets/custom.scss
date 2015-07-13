@@ -39,10 +39,21 @@ input {
 
 .form-field {
   display: block;
+  position: relative;
+  .mdl-textfield {
+    // width: 100% !important;
+    // min-width: 100% !important;
+  }
 }
 
 .form-field.submit-wrapper {
-  margin-top: 12px;
+  margin-top: 16px;
+  margin-bottom: 6px;
+  input {
+    width: 100% !important;
+    min-width: 300px !important;
+    max-width: 300px !important;
+  }
 }
 
 #error_explanation {
@@ -55,7 +66,6 @@ input {
 
 .field_with_errors {
   .form-control {
-    color: red;
   }
 }
 

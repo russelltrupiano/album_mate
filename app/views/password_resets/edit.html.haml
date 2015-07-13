@@ -1,0 +1,20 @@
+= provide(:title, "Reset password")
+.row
+  .col-4.col-offset-4
+    %h3 Reset password
+    = form_for(@user, url: password_reset_path) do |f|
+
+      = render "shared/error_messages"
+
+      = hidden_field_tag :email, @user.email
+
+      .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.textfield-demo.form-field.row
+        = f.password_field :password, class: "mdl-textfield__input form-control"
+        = f.label :password, class: "mdl-textfield__label"
+
+      .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.textfield-demo.form-field.row
+        = f.password_field :password_confirmation, class: "mdl-textfield__input form-control"
+        = f.label :password_confirmation, "Confirm password", class: "mdl-textfield__label"
+
+      .form-field.submit-wrapper.row
+        = f.submit "Update password", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"

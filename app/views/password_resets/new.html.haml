@@ -1,0 +1,12 @@
+= provide(:title, "Forgot password")
+.row
+  .col-4.col-offset-4
+    %h3 Forgot password
+    = form_for(:password_reset, url: password_resets_path) do |f|
+
+      .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.textfield-demo.form-field.row
+        = f.email_field :email, class: "mdl-textfield__input form-control"
+        = f.label :email, class: "mdl-textfield__label"
+
+      .form-field.submit-wrapper.row
+        = f.submit "Submit", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
