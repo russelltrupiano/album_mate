@@ -37,7 +37,7 @@ input {
 }
 
 .form-field.submit-wrapper {
-  margin-top: 24px;
+  margin-top: 12px;
 }
 
 #error_explanation {
@@ -53,6 +53,19 @@ input {
     color: red;
   }
 }
+
+// .checkbox {
+//   margin: -10px 0 10px 0;
+//   span {
+//     margin-left: 10px;
+//     font-weight: normal;
+//   }
+// }
+
+// #session_remember_me {
+//   width: auto;
+//   margin-left: 0;
+// }
 
 // StaticPages#home
 

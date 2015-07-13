@@ -11,3 +11,5 @@
     = render 'layouts/shim'
   %body
     = render 'layouts/material_wrapper'
+    :javascript
+        componentHandler.upgradeAllRegistered();

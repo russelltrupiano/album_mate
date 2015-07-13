@@ -1,2 +1,5 @@
 = provide(:title, "Home")
-= render "logged_out_home"
+- if logged_in?
+  = render "logged_in_home"
+- else
+  = render "logged_out_home"

@@ -1,0 +1,24 @@
+= provide(:title, "Log in")
+.row
+  .col-6.col-offset-3
+    %h3 Log in
+    = form_for(:session, url: login_path) do |f|
+
+      .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.textfield-demo.form-field.row
+        = f.email_field :email, class: "mdl-textfield__input form-control"
+        = f.label :email, class: "mdl-textfield__label"
+
+      .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.textfield-demo.form-field.row
+        = f.password_field :password, class: "mdl-textfield__input form-control"
+        = f.label :password, class: "mdl-textfield__label"
+
+      .form-field.row
+        = f.label :remember_me, class: "checkbox inline mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect", for: "remember_me_checkbox" do
+          = f.check_box :remember_me, class: "mdl-checkbox__input", id: "remember_me_checkbox"
+          %span.mdl-checkbox__label Remember me on the computer
+
+      .form-field.submit-wrapper.row
+        = f.submit "Log in", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent pad-small-button"
+    %p
+      New user?
+      = link_to "Sign up now!", signup_path

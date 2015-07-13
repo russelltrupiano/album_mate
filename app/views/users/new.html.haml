@@ -19,3 +19,6 @@
 
       .form-field.submit-wrapper.row
         = f.submit "Create", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent pad-small-button"
+    %p
+      Already have an account?
+      = link_to "Log in now!", login_path
