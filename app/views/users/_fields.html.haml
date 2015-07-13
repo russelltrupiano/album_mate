@@ -1,0 +1,13 @@
+= render "shared/error_messages"
+
+.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.textfield-demo.form-field.row
+  = f.email_field :email, class: "mdl-textfield__input form-control"
+  = f.label :email, class: "mdl-textfield__label"
+
+.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.textfield-demo.form-field.row
+  = f.password_field :password, class: "mdl-textfield__input form-control"
+  = f.label :password, class: "mdl-textfield__label"
+
+.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.textfield-demo.form-field.row
+  = f.password_field :password_confirmation, class: "mdl-textfield__input form-control"
+  = f.label :password_confirmation, "Confirm password", class: "mdl-textfield__label"

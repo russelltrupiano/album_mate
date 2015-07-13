@@ -1,3 +1,7 @@
 russell:
   email: russelltrupiano@gmail.com
   password_digest: <%= User.digest('password') %>
+
+archer:
+  email: "duchess@example.gov"
+  password_digest: <%= User.digest('password') %>

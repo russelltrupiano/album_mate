@@ -11,13 +11,11 @@
         - if logged_in?
           %nav.mdl-navigation
             %img#user-menu{:src => "/images/default_photo.png", :class => "mdl-button mdl-js-button mdl-button--icon"}
-            .user-dropdown{:for => "user-menu", :class => "mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"}
-              %p= current_user.email
-              %ul
-                %li.mdl-menu__item
-                  %a.mdl-navigation__link{:href => '#'}User
-                %li.mdl-menu__item
-                  = link_to "Log out", logout_path, method: "delete", class: "mdl-navigation__link"
+            %ul.mdl-menu.mdl-menu--bottom-right.mdl-js-menu.mdl-js-ripple-effect{:for => "user-menu"}
+              %li.mdl-menu__item
+                %a.mdl-navigation__link{:href => edit_user_path(current_user)}Update Profile
+              %li.mdl-menu__item
+                = link_to "Log out", logout_path, method: "delete", class: "mdl-navigation__link"
     - if logged_in?
       .mdl-layout__drawer
         %span.mdl-layout-title= application_title
