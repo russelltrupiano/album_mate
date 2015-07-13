@@ -70,3 +70,5 @@ gem 'fog', '1.32.0'
 
 gem 'bourbon', '4.2.3'
 gem 'neat', '1.7.2'
+
+gem 'discogs-wrapper', '2.1.1'

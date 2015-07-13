@@ -1,13 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'password_resets/new'
-
-  get 'password_resets/edit'
-
-  get 'sessions/new'
-
-  get 'users/new'
-
   root                       'static_pages#home'
   get    'releases'       => 'static_pages#releases'
   get    'subscriptions'  => 'static_pages#subscriptions'
@@ -21,6 +13,7 @@ Rails.application.routes.draw do
   delete 'logout'         => 'sessions#destroy'
 
   resources :users,               except: [:show]
+  # resources :artists
   resources :account_activations, only:   [:edit]
   resources :password_resets,     only:   [:new, :create, :edit, :update]
 
