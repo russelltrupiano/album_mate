@@ -38,10 +38,19 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     get edit_account_activation_path(user.activation_token, email: user.email)
     assert user.reload.activated?
     follow_redirect!
-    assert_template partial: 'static_pages/_logged_in_home'
+    assert_redirected_to releases_path
+    follow_redirect!
+    assert_template 'static_pages/releases'
     assert is_logged_in?
     # assert_template 'static_pages/home'
     # assert is_logged_in?
+  end
+
+  test "redirect signup when already logged in" do
+    user = users(:russell)
+    log_in_as(user)
+    get signup_path
+    assert_redirected_to releases_path
   end
 
 end

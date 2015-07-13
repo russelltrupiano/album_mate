@@ -9,6 +9,8 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   test "unsuccessful edit" do
     log_in_as(@user)
     get edit_user_path(@user)
+    assert_redirected_to profile_path
+    follow_redirect!
     assert_template 'users/edit'
     patch user_path(@user), user: { email: "foo@invlaid",
                                     password:              "foo",
@@ -19,6 +21,8 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   test "successful edit" do
     log_in_as(@user)
     get edit_user_path(@user)
+    assert_redirected_to profile_path
+    follow_redirect!
     assert_template 'users/edit'
     email = "foobar@example.com"
     patch user_path(@user), user: { email: email,
@@ -26,6 +30,8 @@ class UsersEditTest < ActionDispatch::IntegrationTest
                                     password_confirmation: "" }
     assert_not flash.empty?
     assert_redirected_to edit_user_path(@user)
+    follow_redirect!
+    assert_redirected_to profile_path
     follow_redirect!
     assert_template "users/edit"
     @user.reload

@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
-  before_action :logged_in_user, only: [:edit, :update]
+  before_action :logged_in_user, only: [:edit, :update, :profile]
   before_action :correct_user,   only: [:edit, :update]
+  before_action :can_signup,     only: [:new]
 
   def new
     @user = User.new
@@ -20,6 +21,12 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    redirect_to profile_path
+  end
+
+  def profile
+    @user = current_user
+    render 'edit'
   end
 
   def update
@@ -54,6 +61,12 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       redirect_to root_url unless current_user?(@user)
+    end
+
+    def can_signup
+      unless !logged_in?
+        redirect_to releases_path
+      end
     end
 
 end

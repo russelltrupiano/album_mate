@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+
+  before_action :can_login, only: [:new]
+
   def new
   end
 
@@ -25,4 +28,13 @@ class SessionsController < ApplicationController
     log_out if logged_in?
     redirect_to root_url
   end
+
+  private
+
+    def can_login
+      unless !logged_in?
+        redirect_to releases_path
+      end
+    end
+
 end

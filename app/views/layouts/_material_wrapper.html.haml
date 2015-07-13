@@ -4,7 +4,7 @@
       .mdl-layout-icon
       .mdl-layout__header-row
         / Title
-        %span.mdl-layout-title= application_title
+        %span.mdl-layout-title.navbar-app-title= link_to application_title, root_url
         / Spacer to align nav to right
         .mdl-layout-spacer
         / Navigation
@@ -13,12 +13,9 @@
           %img#user-menu{:src => "/images/default_photo.png", :class => "mdl-button mdl-js-button mdl-button--icon"}
           %ul.mdl-menu.mdl-menu--bottom-right.mdl-js-menu.mdl-js-ripple-effect{:for => "user-menu"}
             %li.mdl-menu__item
-              %a.mdl-navigation__link{:href => edit_user_path(current_user)}Update Profile
+              %a.reset_link{:href => profile_path}Update Profile
             %li.mdl-menu__item
-              = link_to "Log out", logout_path, method: "delete", class: "mdl-navigation__link"
-        - else
-          = link_to 'Sign Up', signup_path, class: "mdl-button mdl-js-button mdl-button--accent mdl-js-ripple-effect log-in-button"
-
+              = link_to "Log out", logout_path, method: "delete", class: "reset_link"
     .mdl-layout__drawer
       %span.mdl-layout-title= application_title
       %nav.mdl-navigation
@@ -33,6 +30,8 @@
       .page-content
         - flash.each do |msg_type, msg|
           .alert{:class => "alert-#{msg_type}"}= msg
-        = yield
+        .row
+          .col-12
+            = yield
         / = render 'layouts/footer'
         = debug(params) if Rails.env.development?

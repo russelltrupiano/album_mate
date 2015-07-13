@@ -1,5 +1,11 @@
 = provide(:title, "Home")
-- if logged_in?
-  = render "logged_in_home"
-- else
-  = render "logged_out_home"
+.logged-out-container.center
+  .application-icon-wrapper
+    %img{:src => "http://www.webdesign.org/img_articles/12567/16.jpg", :alt => "application icon", :class => "application-icon"}/
+  .session-start-wrapper
+    .log-in-wrapper
+      = link_to 'Log In', login_path, class: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect log-in-button pad-small-button"
+    %span.button-separator - OR -
+    .sign-up-wrapper
+      = link_to 'Sign Up', signup_path, class: "mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect log-in-button pad-small-button"
+  %p.application-description Keep track of all of your favorite artists and never miss a new album release again! Completely free!

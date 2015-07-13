@@ -22,7 +22,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     post login_path, session: { email: @user.email, password: "password" }
     assert_redirected_to releases_path
     follow_redirect!
-    assert_template "static_pages/home"
+    assert_template "static_pages/releases"
     assert_select "a[href=?]", logout_path
   end
 
@@ -32,7 +32,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert is_logged_in?
     assert_redirected_to releases_path
     follow_redirect!
-    assert_template "static_pages/home"
+    assert_template "static_pages/releases"
     assert_select "a[href=?]", logout_path
     delete logout_path
     assert_not is_logged_in?
@@ -52,6 +52,12 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   test "login without remeembering" do
     log_in_as(@user, remember_me: '0')
     assert_nil cookies['remember_token']
+  end
+
+  test "redirect login when already logged in" do
+    log_in_as(@user)
+    get login_path
+    assert_redirected_to releases_path
   end
 
 end

@@ -1,3 +1,24 @@
+// Mixins, variables, etc.
+
+$light-gray: #cdcdcd;
+$dark-gray: rgb(66,66,66);
+$white: rgb(255,255,255);
+$mobile: new-breakpoint(max-width 480px);
+$medium-screen: new-breakpoint(max-width 900px);
+$large-screen: new-breakpoint(max-width 1150px);
+$desktop: new-breakpoint(min-width 850px);
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@mixin reset_link {
+  color: $dark-gray !important;
+  text-decoration: none;
+}
+
 // Universal
 
 body {
@@ -13,17 +34,25 @@ textarea {
   text-align: center;
 }
 
-// Mixins, variables, etc.
+.mdl-layout__header-row .mdl-navigation__link {
+  color: $dark-gray !important;
+}
 
-$light-gray: #cdcdcd;
-$mobile: new-breakpoint(max-width 480px);
-$tablet: new-breakpoint(max-width 900px);
-$desktop: new-breakpoint(min-width 850px);
+.navbar-app-title a{
+  color: $white !important;
+  font-weight: normal;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
 
-@mixin box_sizing {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+li.mdl-menu__item a.mdl-navigation__link {
+  height: auto !important;
+}
+
+.reset_link {
+  @include reset_link;
 }
 
 // Forms
@@ -115,6 +144,42 @@ input {
   @include span-columns(6);
   @include media($mobile) {
     @include span-columns(10);
+  }
+}
+
+.col-8 {
+  @include span-columns(8);
+  @include media($mobile) {
+    @include span-columns(10);
+  }
+}
+
+.col-10 {
+  @include span-columns(10);
+  @include media($mobile) {
+    @include span-columns(10);
+  }
+}
+
+.col-12 {
+  @include span-columns(12);
+  @include media($large-screen) {
+    @include span-columns(10);
+    @include shift(1);
+  }
+}
+
+.col-offset-1 {
+  @include shift(1);
+  @include media($mobile) {
+    @include shift(1);
+  }
+}
+
+.col-offset-2 {
+  @include shift(2);
+  @include media($mobile) {
+    @include shift(1);
   }
 }
 
