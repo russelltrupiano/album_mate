@@ -1,0 +1,14 @@
+%ul
+  %li
+    Use
+    %a{:href => "http://127.0.0.1:3000/"}127.0.0.1
+    %strong not
+    localhost to prevent session issues
+  %li User active_record_store for session/cookies
+  %li Create a discogs.com app
+  %li Add consumer key and secret to config/enviroment_variables.yml
+
+- if @discogs.authenticated?
+  %h3 You're authenticated!
+- else
+  = link_to "Authenticate Discogs", "/discogs/authenticate"

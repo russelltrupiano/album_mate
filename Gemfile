@@ -72,3 +72,5 @@ gem 'bourbon', '4.2.3'
 gem 'neat', '1.7.2'
 
 gem 'discogs-wrapper', '2.1.1'
+gem 'figaro', '1.1.1'
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'

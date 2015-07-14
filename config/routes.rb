@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
 
+  get 'discogs/authenticate'
+
+  get 'discogs/callback'
+
+  get 'discogs/index'
+
+  get 'discogs/show'
+
+  get 'discogs/edit'
+
+  get 'discogs/create'
+
+  get 'discogs/update'
+
   root                       'static_pages#home'
   get    'releases'       => 'static_pages#releases'
   get    'subscriptions'  => 'static_pages#subscriptions'
